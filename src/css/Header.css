@@ -1,0 +1,46 @@
+.header-wrapper {
+  padding: 21px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  width: 60px;
+  height: auto;
+  margin-right: 5px;
+}
+
+.logo-text {
+  font-family: arial;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.search-input {
+  border: none;
+  border-bottom: 1px solid #bebebe;
+  outline: none;
+  padding: 5px 10px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.icon {
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* .search-icon {
+  position: absolute;
+  right: 20.1%;
+  right: 22.1%;
+  top: 1.9%;
+  transition: transform 1s ease 1ms;
+  margin-right: 20px;
+} */
+
+.search-icon:hover {
+  transform: scale(1.3);
+}
