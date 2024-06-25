@@ -17,10 +17,35 @@ body {
   justify-content: center;
 }
 
+.flex-between {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .cpoint {
   cursor: pointer;
 }
 
 #root {
   height: 100vh;
+}
+
+.remove-basket-button {
+  border: none;
+  width: 50px;
+  height: auto;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #d43e3e;
+  color: #fff;
+  transition: all 1s ease 1ms;
+}
+
+.remove-basket-button:hover {
+  background-color: #882c2c;
+  color: #d6c7c7;
+  cursor: pointer;
 }

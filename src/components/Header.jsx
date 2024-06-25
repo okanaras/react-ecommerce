@@ -5,10 +5,17 @@ import { CiShoppingBasket } from "react-icons/ci";
 import { CiLight } from "react-icons/ci";
 import { AiFillMoon } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
+import Badge from '@mui/material/Badge';
+import { useDispatch, useSelector } from 'react-redux';
+import { setDrawer } from '../redux/slices/basketSlice';
+
 
 function Header() {
     const [theme, setTheme] = useState(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const { products } = useSelector((store) => store.basket);
 
     useEffect(() => {
         const root = document.querySelector("#root");
@@ -36,8 +43,9 @@ function Header() {
                 {/* <CiSearch className='search-icon' /> */}
                 <div>
                     {theme ? <CiLight className='icon' onClick={changeTheme} /> : <AiFillMoon className='icon' onClick={changeTheme} />}
-
-                    <CiShoppingBasket className='icon' />
+                    <Badge onClick={() => dispatch(setDrawer())} badgeContent={products.length} color='error'>
+                        <CiShoppingBasket className='icon' style={{ marginRight: '6px' }} />
+                    </Badge>
                 </div>
 
             </div>

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { setSelectedProduct } from '../redux/slices/productSlice'
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
+import { addToBasket, calculateBasket } from '../redux/slices/basketSlice';
 
 function ProductDetails() {
 
@@ -37,6 +38,18 @@ function ProductDetails() {
         }
     };
 
+    const addBasket = () => {
+        const payload = { id, price, image, title, description, count };
+
+        if (count > 0) {
+            dispatch(addToBasket(payload));
+            dispatch(calculateBasket());
+        } else {
+            console.log("En az 1 adet seciniz!");
+        }
+
+    };
+
     return (
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '30px' }}>
             <div style={{ marginRight: '40px' }}>
@@ -53,7 +66,7 @@ function ProductDetails() {
                     <CiCirclePlus className='cpoint' style={{ fontSize: '35px', marginLeft: '10px' }} onClick={increment} />
                 </div>
                 <div>
-                    <button className='detail-button' style={{ marginTop: '25px' }}>Sepete Ekle</button>
+                    <button className='detail-button' onClick={addBasket} style={{ marginTop: '25px' }}>Sepete Ekle</button>
                 </div>
             </div>
         </div>
