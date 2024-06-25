@@ -1,18 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom'
 import '../css/Product.css';
 
 function Product({ product }) {
     const { id, price, image, title, description } = product;
-    console.log(image);
+
+    const navigate = useNavigate();
+
     return (
         <div className='card'>
             <img className='image' src={image} alt={title} />
             <div>
                 <p style={{ textAlign: 'center', height: '50px' }}>{title}</p>
-                <h3 style={{ textAlign: 'center' }}>{price}</h3>
+                <h3 style={{ textAlign: 'center' }}>{price} TL</h3>
             </div>
             <div className='flex-row'>
-                <button className='detail-button'>Detayi Gor</button>
+                <button onClick={() => navigate(`/product-details/${id}`)} className='detail-button'>Detayi Gor</button>
             </div>
         </div>
     )

@@ -17,6 +17,10 @@ body {
   justify-content: center;
 }
 
+.cpoint {
+  cursor: pointer;
+}
+
 #root {
   height: 100vh;
 }

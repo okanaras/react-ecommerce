@@ -4,9 +4,11 @@ import { CiSearch } from "react-icons/ci";
 import { CiShoppingBasket } from "react-icons/ci";
 import { CiLight } from "react-icons/ci";
 import { AiFillMoon } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
     const [theme, setTheme] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const root = document.querySelector("#root");
@@ -25,7 +27,7 @@ function Header() {
 
     return (
         <div className='header-wrapper'>
-            <div className='flex-row'>
+            <div className='flex-row cpoint' onClick={() => navigate('/')}>
                 <img className='logo' src={theme ? './src/images/logo-light-mode.png' : './src/images/logo-dark-mode.png'} />
                 <p className='logo-text'>OKAN A.S</p>
             </div>
